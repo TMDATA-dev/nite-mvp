@@ -44,6 +44,30 @@ cp .env.example .env.local
 
 Edita `.env.local` con tus credenciales de Supabase y otras APIs necesarias.
 
+4. Conexión con Supabase:
+
+El proyecto está configurado para conectarse con una instancia remota de Supabase. Para alternar entre entornos:
+
+```bash
+# Para conectar con la instancia remota
+cp .env.local .env.local.backup && cp .env.remote .env.local
+
+# Para trabajar con Supabase local
+cp .env.local .env.remote && cp .env.local.dev .env.local
+```
+
+También puedes utilizar la CLI de Supabase para trabajar con la instancia remota:
+
+```bash
+# Iniciar sesión en Supabase
+npx supabase login
+
+# Vincular con el proyecto remoto
+npx supabase link --project-ref fhtfltdbrnatasrmufet
+```
+
+Para más detalles sobre Supabase, consulta [docs/supabase-instructions.md](docs/supabase-instructions.md).
+
 ## Desarrollo
 
 Para ejecutar el servidor de desarrollo:
