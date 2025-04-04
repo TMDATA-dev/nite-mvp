@@ -1,15 +1,18 @@
 # Nite-MVP
 
-Aplicación para crear y gestionar "nites" (eventos nocturnos) desarrollada con Next.js y Supabase.
+Asistente de hoteles basado en IA que mejora significativamente la experiencia del cliente, resolviendo dudas frecuentes y realizando tareas prácticas como pedir un taxi.
+
+## Objetivo
+
+Crear una herramienta basada en inteligencia artificial que pueda integrarse fácilmente en hoteles para ofrecer soporte 24/7, gestionar peticiones del cliente y ejecutar acciones reales mediante integraciones.
 
 ## Características
 
-- Autenticación de usuarios (registro/inicio de sesión)
-- Creación y gestión de eventos nocturnos
-- Búsqueda de eventos por ubicación, fecha y categoría
-- Reservas y compra de entradas
-- Perfil de usuario con historial de eventos
-- Diseño responsive con Tailwind CSS
+- Integración con un agente de n8n que realiza llamadas automáticas usando la API de Vapi
+- Devolución de una URL de escucha para que el usuario pueda oír la llamada desde la plataforma
+- Interfaz simple y visual para realizar solicitudes básicas (como pedir un taxi)
+- Autenticación de usuarios mediante Supabase
+- Chat integrado (por ahora con n8n)
 
 ## Requisitos previos
 
@@ -106,11 +109,17 @@ yarn build
 
 ## Tecnologías utilizadas
 
-- [Next.js](https://nextjs.org/) - Framework de React
-- [TypeScript](https://www.typescriptlang.org/) - Tipado estático
-- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS
-- [Supabase](https://supabase.io/) - Backend as a Service
-- [Zustand](https://github.com/pmndrs/zustand) - Gestión de estado
+- **Frontend**: [Next.js](https://nextjs.org/), React, [Tailwind CSS](https://tailwindcss.com/)
+- **Backend**: [Supabase](https://supabase.io/) (Auth + Functions)
+- **Automatización / Llamadas**: n8n + Vapi
+- **IDE**: Cursor
+- **TypeScript**: Para tipado estático
+
+## Posible evolución futura
+
+- Integración con tecnología MCP para reconocimiento de voz en dispositivos físicos
+- Registro de historial de solicitudes por usuario
+- Chat embebido con RAG
 
 ## Contribución
 
