@@ -59,9 +59,40 @@ Consulta [docs/estructura.md](docs/estructura.md) para ver la estructura detalla
 
 ## Estructura de ramas
 
-- **main**: Rama principal para código de producción
-- **dev**: Rama de desarrollo para integración de características
-- **feature/nombre**: Ramas para desarrollo de características específicas
+Seguimos un modelo de ramificación basado en GitFlow:
+
+- **main**: Rama principal que contiene código de producción estable y listo para desplegar
+- **develop**: Rama de desarrollo donde se integran las características completadas
+- **feature/nombre**: Ramas para el desarrollo de nuevas características (parten de develop)
+- **hotfix/nombre**: Ramas para correcciones rápidas en producción (parten de main)
+- **release/v.x.x.x**: Ramas para preparar versiones para lanzamiento
+
+### Flujo de trabajo
+
+1. Para desarrollar una nueva característica:
+
+   ```bash
+   git checkout develop
+   git pull
+   git checkout -b feature/nombre-caracteristica
+   # Realizar cambios
+   git add .
+   git commit -m "Descripción de los cambios"
+   git push origin feature/nombre-caracteristica
+   # Crear Pull Request hacia develop
+   ```
+
+2. Para corregir un error en producción:
+   ```bash
+   git checkout main
+   git pull
+   git checkout -b hotfix/nombre-error
+   # Realizar correcciones
+   git add .
+   git commit -m "Corrección del error"
+   git push origin hotfix/nombre-error
+   # Crear Pull Request hacia main y develop
+   ```
 
 ## Implementación
 
