@@ -37,6 +37,11 @@ export const useAuth = create<AuthState>()(
           }
 
           if (data?.user) {
+            // Verificar si el email está confirmado
+            if (data.user.email_confirmed_at === null) {
+              throw new Error("Email not confirmed");
+            }
+
             set({
               user: {
                 id: data.user.id,
